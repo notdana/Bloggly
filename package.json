@@ -1,26 +1,32 @@
 {
-    "name": "bloggly",
-    "version": "1.0.0",
-    "description": "This is the application layer for bloggly ",
-    "main": "server.ts",
-    "scripts": {
-        "start": "nodemon --exec ts-node server.ts",
-        "test": "mocha -r ts-node/register src/tests/**/*.ts --exit",
-        "tsc": "tsc",
-        "run": "tsc && npm start"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/DanaWentBananas/Bloggly"
-    },
-    "author": "Dana",
-    "license": "ISC",
-    "homepage": "https://github.com/DanaWentBananas/Bloggly/blob/main/README.md",
-        
-    "dependencies": {
-        "@types/express": "^4.17.12",
-        "aws-sdk-mock": "^5.7.0",
-        "ts-node": "^10.2.1",
-        "typescript": "^4.3.5"
-    }
+  "name": "bloggly",
+  "version": "1.0.0",
+  "description": "An app where everybody can share their blogs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanaWentBananas/Bloggly.git"
+  },
+  "author": "DanaFeranmi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanaWentBananas/Bloggly/issues"
+  },
+  "homepage": "https://github.com/DanaWentBananas/Bloggly#readme",
+  "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.5.2",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0"
+  }
 }
