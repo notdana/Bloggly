@@ -4,6 +4,8 @@
   "description": "An app where everybody can share their blogs.",
   "main": "index.js",
   "scripts": {
+    "start":"cross-env NODE_ENV=production node app",
+    "dev":"cross-env NODE_ENV=development nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,5 +30,9 @@
     "morgan": "^1.10.0",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.19"
   }
 }
