@@ -1,1 +1,26 @@
-<h1>MEOW</h1>
+<h1>Welcome, {{name}}</h1>
+
+{{#if blogs}}
+<p>Check out these blogs!</p>
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each blogs}}
+                <tr>
+                    <td><a href="/stories/{{_id}}"></a>{{title}}</td>
+                    <td>{{createdAt}}</td>
+                    <td><span class="dash-status">{{status}}</span></td>
+                    <td></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p>The sound of crickets! There are no blogs</p>
+{{/if}}

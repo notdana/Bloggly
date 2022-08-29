@@ -1,14 +1,37 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const exph = require('express-handlebars')
 const morgan = require('morgan')
 const path = require('path')
+const passport = require('passport')
+const session = require('express-session')
+const mongoStore = require('connect-mongo')
 
 const app = express()
+
+//Body parser middleware
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
 
 //For the enviroment variables
 const dotenv = require('dotenv')
 dotenv.config({path: './config/config.env'})
 const PORT = process.env.PORT || 3000 
+
+//passport config
+require('./config/passport')(passport)
+
+//sessions
+app.use(session({
+    secret: 'potato',
+    resave: false,
+    saveUninitialized: false,
+    store: mongoStore.create({mongoUrl: process.env.MONGO_URI,})
+}))
+
+//passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
 //FILE CREATED IN CONFIG FOLDER TO CONNECT DB
 const connectDB = require('./config/db')
@@ -29,6 +52,10 @@ app.use(express.static(path.join(__dirname,'public')))
 
 //Routes
 app.use('/',require('./routes/index'))
+app.use('/auth',require('./routes/auth'))
+app.use('/blogs', require('./routes/blogs'))
+
+
 
 app.listen(
     PORT, 

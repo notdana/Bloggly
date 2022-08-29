@@ -11,13 +11,32 @@
     <title>Bloggly</title>
 </head>
 <body>
+    {{>_header}}
+    {{>_addBtn}}
 
     <div class="container">
         {{{body}}}
     </div>
 
+    {{!-- CKeditor JS --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.1/ckeditor.js" integrity="sha512-Ooi9IbjM2SIDjQ02ENbPFuuORT8F8Rc+rowcYfLneDwKRxw1+gVVj5tciVmV/APnA/Ys+qy1MbNKK3k2EaAHcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     {{!-- Materialize JS --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        M.Sidenav.init(document.querySelector('.sidenav'))
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var sel = document.querySelectorAll('select');
+            M.FormSelect.init(sel)
+        });
+
+        CKEDITOR.replace('body',{
+            plugins: 'wysiwygarea,toolbar,basicstyles,link'
+        })
+
+    </script>
 
 </body>
 </html>
