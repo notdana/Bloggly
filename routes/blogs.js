@@ -14,6 +14,8 @@ router.post('/', ensureAuth, async (req,res)=>{
     try {
         req.body.user = req.user.id
         await Blog.create(req.body)
+        res.send({error:false, response: "Blog created"});
+        res.redirect('/dashboard')
     } catch (error) {
         console.error(error)
         res.render('error/500')

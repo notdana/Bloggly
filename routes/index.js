@@ -11,9 +11,10 @@ router.get('/', ensureGuest, (req,res)=>{
 })
 
 // Dashboard for GET /dashboard
-router.get('/dashboard',ensureAuth, (req,res)=>{
+router.get('/dashboard',ensureAuth, async (req,res)=>{
     try {
-        const blogs = Blog.find({user: req.user.id})
+        const blogs = await Blog.find({user: req.user.id}).lean()
+        console.log(blogs)
         res.render('dashboard', {
             name: req.user.firstName,
             blogs
