@@ -26,7 +26,8 @@ app.use(methodOverride(function (req,res){
 //For the enviroment variables
 const dotenv = require('dotenv')
 dotenv.config({path: './config/config.env'})
-const PORT = process.env.PORT || 3000 
+//const PORT = process.env.PORT || 3000 
+const PORT = 8080
 
 //passport config
 require('./config/passport')(passport)
