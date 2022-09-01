@@ -25,8 +25,18 @@ router.get('/dashboard',ensureAuth, async (req,res)=>{
     }
 })
 
+//docs for GET /docs
+router.get('/docs',ensureAuth, (req,res)=>{
+    try {
+        res.render('docs')
+    } catch (error) {
+        console.error(error)
+        res.render('error/500')
+    }
+})
+
 router.get('/test',(req,res)=>{
-    "MEOW"
+    "YOU FOUND THE EASTER EGG!"
 })
 
 module.exports = router

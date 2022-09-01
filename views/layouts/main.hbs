@@ -20,11 +20,19 @@
 
     {{!-- CKeditor JS --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.1/ckeditor.js" integrity="sha512-Ooi9IbjM2SIDjQ02ENbPFuuORT8F8Rc+rowcYfLneDwKRxw1+gVVj5tciVmV/APnA/Ys+qy1MbNKK3k2EaAHcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     {{!-- Materialize JS --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script>
+
+         $(document).ready(function(){
+            $('.collapsible').collapsible();
+         });
+
         M.Sidenav.init(document.querySelector('.sidenav'))
 
         document.addEventListener('DOMContentLoaded', function() {

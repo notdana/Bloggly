@@ -27,7 +27,7 @@ app.use(methodOverride(function (req,res){
 const dotenv = require('dotenv')
 dotenv.config({path: './config/config.env'})
 //const PORT = process.env.PORT || 3000 
-const PORT = 8080
+const PORT = 3000
 
 //passport config
 require('./config/passport')(passport)
@@ -69,6 +69,7 @@ app.set('view engine','hbs')
 
 //Static Folder, makes it accessable
 app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname, "public/gallery")));
 
 //Routes
 app.use('/',require('./routes/index'))
