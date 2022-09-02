@@ -36,7 +36,28 @@ router.get('/docs',ensureAuth, (req,res)=>{
 })
 
 router.get('/test',(req,res)=>{
-    "YOU FOUND THE EASTER EGG!"
+    res.render('error/easterEgg')
 })
+
+//docs for GET /versions/version1
+router.get('/versions/version1', (req,res)=>{
+    try {
+        res.render('versions/version1')
+    } catch (error) {
+        console.error(error)
+        res.render('error/500')
+    }
+})
+
+//docs for GET /versions/version2
+router.get('/versions/version2', (req,res)=>{
+    try {
+        res.render('versions/version2')
+    } catch (error) {
+        console.error(error)
+        res.render('error/500')
+    }
+})
+
 
 module.exports = router
